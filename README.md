@@ -11,3 +11,34 @@ torch-geometric version: 2.5.3
 scikit-learn version: 1.3.2
 
 matplotlib version: 3.7.5
+
+# Data Preparation
+**Step 1: Download Association Data**
+
+Download known SM–lncRNA association (SLA) pairs from known SLA databases.
+
+SMILES strings for small molecules (e.g., from PubChem).
+
+lncRNA sequences (e.g., from Ensembl).
+
+**Step 2: Feature Extraction**
+
+Node2Vec features:
+
+Build the bipartite SM–lncRNA association network.
+
+Run Node2Vec to generate embeddings for SM and lncRNA nodes.
+
+**Prepare text files with SMILES and RNA sequences.**
+
+Train Doc2Vec model.
+
+**Step 3: Combine Features**
+
+Merge Node2Vec embeddings and Doc2Vec vectors.
+
+Label positive (1) and negative (0) pairs.
+
+Save as final_input_lncrna_SM.csv
+
+First column containst the labels for each pair, second column contains the lncRNA, third column contains small molecules, forth column contains the features of lncRNAs and fifth colum contains the features of small molecules.
